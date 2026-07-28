@@ -1,0 +1,19 @@
+{
+  "name": "棋魂五子棋",
+  "short_name": "棋魂",
+  "description": "精致、专注的十五路五子棋",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0f0f",
+  "theme_color": "#0d0f0f",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "/assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
