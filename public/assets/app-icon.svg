@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#19201e"/>
+      <stop offset="1" stop-color="#090c0b"/>
+    </linearGradient>
+    <radialGradient id="black" cx="32%" cy="24%" r="72%">
+      <stop offset="0" stop-color="#777d7a"/>
+      <stop offset=".22" stop-color="#252a28"/>
+      <stop offset="1" stop-color="#050606"/>
+    </radialGradient>
+    <radialGradient id="white" cx="32%" cy="24%" r="72%">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".32" stop-color="#ecebe6"/>
+      <stop offset="1" stop-color="#aaa9a3"/>
+    </radialGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity=".5"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <rect x="91" y="91" width="330" height="330" rx="42" fill="#ad7741" stroke="#d6a665" stroke-width="6"/>
+  <g stroke="#5c371d" stroke-width="5" opacity=".78">
+    <path d="M146 111v290M201 111v290M256 111v290M311 111v290M366 111v290"/>
+    <path d="M111 146h290M111 201h290M111 256h290M111 311h290M111 366h290"/>
+  </g>
+  <circle cx="201" cy="201" r="48" fill="url(#white)" filter="url(#shadow)"/>
+  <circle cx="311" cy="311" r="48" fill="url(#black)" filter="url(#shadow)"/>
+  <circle cx="188" cy="186" r="9" fill="#fff" opacity=".78"/>
+  <circle cx="298" cy="296" r="8" fill="#fff" opacity=".28"/>
+</svg>
