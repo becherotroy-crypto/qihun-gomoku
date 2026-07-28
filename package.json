@@ -1,0 +1,80 @@
+{
+  "name": "qihun-gomoku",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\build-android.ps1 -Task assembleDebug",
+    "android:aab": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\build-android.ps1 -Task bundleRelease",
+    "desktop:icon": "electron electron/create-windows-icon.cjs",
+    "desktop:run": "pnpm run build && electron .",
+    "desktop:build": "pnpm run desktop:icon && pnpm run build && electron-builder --win nsis --x64"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/filesystem": "7.1.4",
+    "@capacitor/haptics": "^7.0.2",
+    "@capacitor/share": "^7.0.2",
+    "@capacitor/status-bar": "^7.0.2",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "electron": "40.10.6",
+    "electron-builder": "26.14.0",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.2",
+    "vitest": "^3.2.4"
+  },
+  "build": {
+    "appId": "com.qihun.gomoku.desktop",
+    "productName": "棋魂五子棋",
+    "directories": {
+      "buildResources": "resources",
+      "output": "release/windows"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "electronDist": "node_modules/electron/dist",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "resources/app-icon.ico",
+      "artifactName": "${productName}-${version}-setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "棋魂五子棋",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

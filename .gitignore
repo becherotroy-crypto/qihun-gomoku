@@ -1,0 +1,9 @@
+node_modules
+dist
+.vite
+android/.gradle
+android/app/build
+*.log
+output/playwright
+release
+resources/app-icon.ico
